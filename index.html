@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-key="titulo_pagina">IAMAS - Home</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #fff;
+}
+
+/* Cabeçalho e rodapé */
+header {
+  background-color: #496d2d;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+nav ul li a:hover {
+  background-color: #35491e;
+}
+#language-selector {
+  background-color: #496d2d;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+#language-selector:hover {
+  background-color: #35491e;
+}
+footer {
+  background-color: #496d2d;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+}
+footer nav {
+  margin-bottom: 10px;
+}
+footer nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+.social-icons {
+  margin-top: 10px;
+}
+.social-icons a {
+  margin: 0 8px;
+  display: inline-block;
+}
+.social-icons img {
+  width: 28px;
+  height: 28px;
+  vertical-align: middle;
+}
+
+/* Hero com imagem de fundo e frase maior */
+.hero {
+  position: relative;
+  padding: 100px 20px 120px;
+  color: white;
+  text-align: center;
+  background: url('img/fundo-hero.jpg') no-repeat center center/cover;
+  box-shadow: inset 0 0 0 1000px rgba(73, 109, 45, 0.75);
+}
+.hero-title,
+.hero-subtitle {
+  color: white !important;
+}
+.hero-title {
+  font-size: 3.6rem;
+  font-weight: 900;
+  margin-bottom: 25px;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+}
+.hero-subtitle {
+  font-size: 2.0rem;
+  font-weight: 700;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.4;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Centralizar e estilizar título "Últimas Notícias" */
+.noticias-home > h2 {
+  text-align: center;
+  color: #496d2d;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+/* Grid das notícias */
+.grid-noticias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  max-width: 960px;
+  margin: 40px auto 60px;
+}
+.noticia {
+  background: #f1f7ee;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+  text-align: center;
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.noticia img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 3px solid #496d2d;
+}
+/* Título da notícia maior, negrito e verde musgo */
+.noticia h3 {
+  color: #496d2d;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-align: center;
+  margin: 15px 10px 10px;
+}
+/* Parágrafo centralizado */
+.noticia p {
+  text-align: center;
+  font-weight: normal;
+  font-size: 1rem;
+  color: #333;
+  margin: 0 10px 10px;
+  flex-grow: 1;
+}
+.noticia a {
+  margin: 0 10px 10px;
+  padding: 8px 12px;
+  background-color: #496d2d;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  align-self: center;
+  transition: background-color 0.3s;
+}
+.noticia a:hover {
+  background-color: #35491e;
+}
+
+/* Containers responsivos para "Quem Somos" etc */
+.sobre-blocos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px 20px 60px;
+  max-width: 1000px;
+  margin: 0 auto 80px;
+  text-align: center;
+}
+.sobre-bloco {
+  flex: 1 1 280px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f1f7ee;
+}
+.sobre-bloco h3 {
+  color: #496d2d;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+.btn-saber-mais {
+  display: inline-block;
+  margin-top: 15px;
+  background-color: #496d2d;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  font-weight: 700;
+}
+.btn-saber-mais:hover {
+  background-color: #35491e;
+}
+
+/* Personalizar seleção de texto para manter contraste */
+::selection {
+  background-color: #496d2d; /* cor do cabeçalho */
+  color: white; /* texto claro para contraste */
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 2.4rem;
+  }
+  .hero-subtitle {
+    font-size: 1.4rem;
+  }
+  .sobre-blocos {
+    flex-direction: column;
+    gap: 20px;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">IAMAS</div>
+    <nav>
+      <ul>
+        <li><a href="index.html" data-key="menu_home">Home</a></li>
+        <li><a href="iamas.html" data-key="menu_iamas">IAMAS</a></li>
+        <li><a href="trabalho.html" data-key="menu_trabalho">Nosso Trabalho</a></li>
+        <li><a href="doacao.html" data-key="menu_doacao">Doação</a></li>
+      </ul>
+    </nav>
+    <select id="language-selector">
+      <option value="pt">PT</option>
+      <option value="en">EN</option>
+      <option value="es">ES</option>
+    </select>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1 data-key="titulo_home" class="hero-title">Bem-vindo ao Instituto Amazônia Sustentável</h1>
+      <p data-key="subtitulo_home" class="hero-subtitle">Conheça nossos projetos e ações para preservar a Amazônia.</p>
+    </section>
+
+    <section class="noticias-home">
+      <h2 data-key="titulo_noticias_home">Últimas Notícias</h2>
+      <div class="grid-noticias">
+        <div class="noticia">
+          <img src="img/saude.jpg" alt="Notícia 1" />
+          <h3 data-key="noticia1_titulo">Projeto Saúde na Comunidade</h3>
+          <p data-key="noticia1_resumo">Implantação de postos de atendimento médico e ações preventivas nas comunidades ribeirinhas.</p>
+          <a href="trabalho.html" data-key="botao_saiba_mais">Saiba Mais</a>
+        </div>
+        <div class="noticia">
+          <img src="img/educacao.jpg" alt="Notícia 2" />
+          <h3 data-key="noticia2_titulo">Educação para o Futuro</h3>
+          <p data-key="noticia2_resumo">Oficinas de educação ambiental com foco na preservação da floresta e conscientização dos jovens.</p>
+          <a href="trabalho.html" data-key="botao_saiba_mais">Saiba Mais</a>
+        </div>
+        <div class="noticia">
+          <img src="img/esporte.jpg" alt="Notícia 3" />
+          <h3 data-key="noticia3_titulo">Esporte e Cidadania</h3>
+          <p data-key="noticia3_resumo">Projetos esportivos para inclusão social e promoção da saúde entre crianças e adolescentes.</p>
+          <a href="trabalho.html" data-key="botao_saiba_mais">Saiba Mais</a>
+        </div>
+        <div class="noticia">
+          <img src="img/sustentavel.jpg" alt="Notícia 4" />
+          <h3 data-key="noticia4_titulo">Projeto de Sustentabilidade</h3>
+          <p data-key="noticia4_resumo">Incentivo à agricultura familiar sustentável e uso consciente dos recursos naturais.</p>
+          <a href="trabalho.html" data-key="botao_saiba_mais">Saiba Mais</a>
+        </div>
+        <div class="noticia">
+          <img src="img/cultura.jpg" alt="Notícia 5" />
+          <h3 data-key="noticia5_titulo">Cultura e Tradição</h3>
+          <p data-key="noticia5_resumo">Valorização das culturas indígenas e ribeirinhas através de eventos e oficinas culturais.</p>
+          <a href="trabalho.html" data-key="botao_saiba_mais">Saiba Mais</a>
+        </div>
+        <div class="noticia">
+          <img src="img/preservacao.jpg" alt="Notícia 6" />
+          <h3 data-key="noticia6_titulo">Preservação Ambiental</h3>
+          <p data-key="noticia6_resumo">Ações de reflorestamento e combate ao desmatamento ilegal na Amazônia.</p>
+          <a href="trabalho.html" data-key="botao_saiba_mais">Saiba Mais</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="sobre-blocos">
+      <div class="sobre-bloco">
+        <h3 data-key="quem_somos">Quem Somos</h3>
+        <p data-key="quem_somos_texto">O IAMAS é uma organização sem fins lucrativos dedicada à conservação ambiental e apoio social na Amazônia.</p>
+      </div>
+      <div class="sobre-bloco">
+        <h3 data-key="o_que_fazemos">O que fazemos</h3>
+        <p data-key="o_que_fazemos_texto">Desenvolvemos projetos sustentáveis focados na educação, saúde, e preservação da floresta.</p>
+      </div>
+      <div class="sobre-bloco">
+        <h3 data-key="quer_saber_mais">Quer saber mais?</h3>
+        <a class="btn-saber-mais" href="trabalho.html" data-key="conheca_trabalho">Conheça nosso trabalho</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <nav>
+      <a href="index.html" data-key="menu_home">Home</a>
+      <a href="iamas.html" data-key="menu_iamas">IAMAS</a>
+      <a href="trabalho.html" data-key="menu_trabalho">Nosso Trabalho</a>
+      <a href="doacao.html" data-key="menu_doacao">Doação</a>
+    </nav>
+    <p>Instituto Amazônia Sustentável - IAMAS</p>
+    <div class="social-icons">
+      <a href="https://www.instagram.com" target="_blank"><img src="img/instagram.png" alt="Instagram"></a>
+      <a href="https://www.facebook.com" target="_blank"><img src="img/facebook.png" alt="Facebook"></a>
+      <a href="https://www.x.com" target="_blank"><img src="img/x.png" alt="X"></a>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

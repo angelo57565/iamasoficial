@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IAMAS - Sobre a Instituição</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #fff;
+      color: #333;
+    }
+    header {
+      background-color: #496d2d;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      font-weight: 600;
+    }
+    nav ul li a:hover {
+      background-color: #35491e;
+    }
+    #language-selector {
+      background-color: #496d2d;
+      color: white;
+      border: none;
+      padding: 5px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #language-selector:hover {
+      background-color: #35491e;
+    }
+    footer {
+      background-color: #496d2d;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+    footer nav {
+      margin-bottom: 10px;
+    }
+    footer nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    .social-icons {
+      margin-top: 10px;
+    }
+    .social-icons a {
+      margin: 0 8px;
+      display: inline-block;
+    }
+    .social-icons img {
+      width: 28px;
+      height: 28px;
+      vertical-align: middle;
+    }
+
+    /* Seção Sobre - imagem esquerda, texto direita */
+    .sobre-section {
+      max-width: 1100px;
+      margin: 40px auto 60px;
+      padding: 0 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+      justify-content: center;
+    }
+    .sobre-image {
+      flex: 1 1 400px;
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      order: 0; /* imagem esquerda */
+    }
+    .sobre-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+    .sobre-text {
+      flex: 1 1 400px;
+      font-size: 1.3rem;
+      line-height: 1.6;
+      color: #496d2d;
+      font-weight: 600;
+      order: 1; /* texto direita */
+      text-align: left;
+    }
+
+    /* Linha do tempo */
+    .linha-tempo-section {
+      max-width: 1100px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .linha-tempo-section h2 {
+      color: #496d2d;
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+    .linha-tempo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      justify-content: center;
+    }
+    .linha-tempo-item {
+      background: #f1f7ee;
+      border-radius: 12px;
+      padding: 25px 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+      font-size: 1rem;
+      color: #35491e;
+      text-align: left;
+    }
+    .linha-tempo-item h3 {
+      color: #496d2d;
+      margin-bottom: 12px;
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+
+    /* Nossa equipe */
+    .equipe-section {
+      max-width: 1100px;
+      margin: 0 auto 80px;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .equipe-section h2 {
+      color: #496d2d;
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+    .fundador {
+      margin-bottom: 50px;
+    }
+    .fundador img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #496d2d;
+      box-shadow: 0 4px 12px rgba(73, 109, 45, 0.5);
+    }
+    .fundador h3 {
+      margin-top: 15px;
+      font-size: 1.8rem;
+      color: #496d2d;
+      font-weight: 700;
+    }
+    .fundador p {
+      font-style: italic;
+      color: #35491e;
+      margin-top: 6px;
+      font-size: 1.1rem;
+    }
+
+    .equipe-membros {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .membro {
+      background: #f1f7ee;
+      border-radius: 12px;
+      padding: 15px;
+      width: 150px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+    }
+    .membro img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      height: 150px;
+      box-shadow: 0 3px 10px rgba(73, 109, 45, 0.4);
+      transition: transform 0.3s ease;
+    }
+    .membro img:hover {
+      transform: scale(1.05);
+    }
+    .membro h4 {
+      margin-top: 10px;
+      font-weight: 700;
+      color: #496d2d;
+      font-size: 1.1rem;
+    }
+    .membro p {
+      font-size: 0.9rem;
+      color: #35491e;
+      margin-top: 4px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 900px) {
+      .sobre-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      .sobre-text, .sobre-image {
+        flex: 1 1 100%;
+        max-width: 100%;
+        order: unset;
+        text-align: center;
+      }
+      .linha-tempo-item {
+        text-align: center;
+      }
+      .membro {
+        width: 45%;
+      }
+    }
+    @media (max-width: 500px) {
+      .membro {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">IAMAS</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="iamas.html">IAMAS</a></li>
+        <li><a href="trabalho.html">Nosso Trabalho</a></li>
+        <li><a href="doacao.html">Doação</a></li>
+      </ul>
+    </nav>
+    <select id="language-selector" aria-label="Selecionar idioma">
+      <option value="pt">PT</option>
+      <option value="en">EN</option>
+      <option value="es">ES</option>
+    </select>
+  </header>
+
+  <main>
+    <!-- Sobre a Instituição -->
+    <section class="sobre-section">
+      <div class="sobre-image">
+        <img src="img/instituicao.jpg" alt="Imagem da Instituição" />
+      </div>
+      <div class="sobre-text">
+        <h1 id="titulo-sobre">Sobre o Instituto Amazônia Sustentável</h1>
+        <p id="texto-sobre">
+          O Instituto Amazônia Sustentável (IAMAS) é uma organização sem fins lucrativos fundada com a missão de conservar a biodiversidade amazônica e promover o desenvolvimento sustentável das comunidades locais.
+          Nossa atuação abrange educação ambiental, saúde comunitária, projetos culturais e apoio à preservação da floresta.
+        </p>
+      </div>
+    </section>
+
+    <!-- Linha do Tempo -->
+    <section class="linha-tempo-section">
+      <h2 id="titulo-linha-tempo">Linha do Tempo</h2>
+      <div class="linha-tempo-grid">
+        <div class="linha-tempo-item">
+          <h3 id="ano1">2005 - Fundação</h3>
+          <p id="desc1">Criação do IAMAS com foco em conservação ambiental e apoio às comunidades da Amazônia.</p>
+        </div>
+        <div class="linha-tempo-item">
+          <h3 id="ano2">2010 - Primeiro Projeto de Saúde</h3>
+          <p id="desc2">Início do projeto “Saúde na Comunidade”, levando atendimento médico para áreas ribeirinhas.</p>
+        </div>
+        <div class="linha-tempo-item">
+          <h3 id="ano3">2015 - Educação Ambiental</h3>
+          <p id="desc3">Implementação de oficinas e cursos para jovens sobre preservação da floresta e sustentabilidade.</p>
+        </div>
+        <div class="linha-tempo-item">
+          <h3 id="ano4">2018 - Projetos Culturais</h3>
+          <p id="desc4">Promoção de eventos culturais para valorização das tradições indígenas e ribeirinhas.</p>
+        </div>
+        <div class="linha-tempo-item">
+          <h3 id="ano5">2021 - Expansão de Projetos</h3>
+          <p id="desc5">Ampliação do trabalho em comunidades remotas, com foco em agricultura sustentável e inclusão social.</p>
+        </div>
+        <div class="linha-tempo-item">
+          <h3 id="ano6">2024 - Novas Parcerias</h3>
+          <p id="desc6">Firmamos parcerias estratégicas para fortalecer a preservação ambiental e o desenvolvimento social.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nossa Equipe -->
+    <section class="equipe-section">
+      <h2 id="titulo-equipe">Nossa Equipe</h2>
+
+      <div class="fundador">
+        <img src="img/fundador.jpg" alt="Fundador IAMAS" />
+        <h3 id="nome-fundador">Ângelo Maia dos Anjos</h3>
+        <p id="frase-fundador">"Juntos podemos preservar o futuro da Amazônia."</p>
+      </div>
+
+      <div class="equipe-membros">
+        <div class="membro">
+          <img src="img/membro1.jpg" alt="Maria Silva" />
+          <h4>Maria Silva</h4>
+          <p>Coordenadora de Projetos</p>
+        </div>
+        <div class="membro">
+          <img src="img/membro2.jpg" alt="João Pereira" />
+          <h4>João Pereira</h4>
+          <p>Educador Ambiental</p>
+        </div>
+        <div class="membro">
+          <img src="img/membro3.jpg" alt="Ana Costa" />
+          <h4>Ana Costa</h4>
+          <p>Especialista em Saúde Comunitária</p>
+        </div>
+        <div class="membro">
+          <img src="img/membro4.jpg" alt="Carlos Souza" />
+          <h4>Carlos Souza</h4>
+          <p>Gestor de Parcerias</p>
+        </div>
+        <div class="membro">
+          <img src="img/membro5.jpg" alt="Fernanda Lima" />
+          <h4>Fernanda Lima</h4>
+          <p>Analista de Comunicação</p>
+        </div>
+        <div class="membro">
+          <img src="img/membro6.jpg" alt="Pedro Santos" />
+          <h4>Pedro Santos</h4>
+          <p>Supervisor de Logística</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="iamas.html">IAMAS</a> |
+      <a href="trabalho.html">Nosso Trabalho</a> |
+      <a href="doacao.html">Doação</a>
+    </nav>
+    <div class="social-icons">
+      <a href="#"><img src="img/instagram.png" alt="Instagram" /></a>
+      <a href="#"><img src="img/facebook.png" alt="Facebook" /></a>
+      <a href="#"><img src="img/x.png" alt="X" /></a>
+    </div>
+    <p>Instituto Amazônia Sustentável - IAMAS © 2025</p>
+  </footer>
+
+  <script>
+    const texts = {
+      pt: {
+        tituloSobre: "Sobre o Instituto Amazônia Sustentável",
+        textoSobre: "O Instituto Amazônia Sustentável (IAMAS) é uma organização sem fins lucrativos fundada com a missão de conservar a biodiversidade amazônica e promover o desenvolvimento sustentável das comunidades locais. Nossa atuação abrange educação ambiental, saúde comunitária, projetos culturais e apoio à preservação da floresta.",
+        tituloLinhaTempo: "Linha do Tempo",
+        ano1: "2005 - Fundação",
+        desc1: "Criação do IAMAS com foco em conservação ambiental e apoio às comunidades da Amazônia.",
+        ano2: "2010 - Primeiro Projeto de Saúde",
+        desc2: "Início do projeto “Saúde na Comunidade”, levando atendimento médico para áreas ribeirinhas.",
+        ano3: "2015 - Educação Ambiental",
+        desc3: "Implementação de oficinas e cursos para jovens sobre preservação da floresta e sustentabilidade.",
+        ano4: "2018 - Projetos Culturais",
+        desc4: "Promoção de eventos culturais para valorização das tradições indígenas e ribeirinhas.",
+        ano5: "2021 - Expansão de Projetos",
+        desc5: "Ampliação do trabalho em comunidades remotas, com foco em agricultura sustentável e inclusão social.",
+        ano6: "2024 - Novas Parcerias",
+        desc6: "Firmamos parcerias estratégicas para fortalecer a preservação ambiental e o desenvolvimento social.",
+        tituloEquipe: "Nossa Equipe",
+        nomeFundador: "Ângelo Maia dos Anjos",
+        fraseFundador: "\"Juntos podemos preservar o futuro da Amazônia.\""
+      },
+      en: {
+        tituloSobre: "About Instituto Amazônia Sustentável",
+        textoSobre: "Instituto Amazônia Sustentável (IAMAS) is a nonprofit organization founded with the mission to conserve Amazonian biodiversity and promote sustainable development of local communities. Our work includes environmental education, community health, cultural projects, and forest preservation support.",
+        tituloLinhaTempo: "Timeline",
+        ano1: "2005 - Foundation",
+        desc1: "Creation of IAMAS focusing on environmental conservation and community support in the Amazon.",
+        ano2: "2010 - First Health Project",
+        desc2: "Started 'Health in the Community' project, bringing medical care to riverside areas.",
+        ano3: "2015 - Environmental Education",
+        desc3: "Implementation of workshops and courses for youth about forest preservation and sustainability.",
+        ano4: "2018 - Cultural Projects",
+        desc4: "Promotion of cultural events to value indigenous and riverside traditions.",
+        ano5: "2021 - Project Expansion",
+        desc5: "Expansion of work in remote communities focusing on sustainable agriculture and social inclusion.",
+        ano6: "2024 - New Partnerships",
+        desc6: "Strategic partnerships established to strengthen environmental preservation and social development.",
+        tituloEquipe: "Our Team",
+        nomeFundador: "Ângelo Maia dos Anjos",
+        fraseFundador: "\"Together we can preserve the future of the Amazon.\""
+      },
+      es: {
+        tituloSobre: "Sobre el Instituto Amazônia Sustentável",
+        textoSobre: "El Instituto Amazônia Sustentável (IAMAS) es una organización sin fines de lucro fundada con la misión de conservar la biodiversidad amazónica y promover el desarrollo sostenible de las comunidades locales. Nuestra labor incluye educación ambiental, salud comunitaria, proyectos culturales y apoyo a la preservación del bosque.",
+        tituloLinhaTempo: "Línea de Tiempo",
+        ano1: "2005 - Fundación",
+        desc1: "Creación del IAMAS con enfoque en conservación ambiental y apoyo a las comunidades de la Amazonía.",
+        ano2: "2010 - Primer Proyecto de Salud",
+        desc2: "Inicio del proyecto 'Salud en la Comunidad', llevando atención médica a las zonas ribereñas.",
+        ano3: "2015 - Educación Ambiental",
+        desc3: "Implementación de talleres y cursos para jóvenes sobre preservación del bosque y sostenibilidad.",
+        ano4: "2018 - Proyectos Culturales",
+        desc4: "Promoción de eventos culturales para valorar las tradiciones indígenas y ribereñas.",
+        ano5: "2021 - Expansión de Proyectos",
+        desc5: "Ampliación del trabajo en comunidades remotas, con enfoque en agricultura sostenible e inclusión social.",
+        ano6: "2024 - Nuevas Alianzas",
+        desc6: "Se establecieron alianzas estratégicas para fortalecer la preservación ambiental y el desarrollo social.",
+        tituloEquipe: "Nuestro Equipo",
+        nomeFundador: "Ângelo Maia dos Anjos",
+        fraseFundador: "\"Juntos podemos preservar el futuro de la Amazonía.\""
+      }
+    };
+
+    const selectLang = document.getElementById('language-selector');
+
+    function updateLanguage(lang) {
+      document.getElementById('titulo-sobre').textContent = texts[lang].tituloSobre;
+      document.getElementById('texto-sobre').textContent = texts[lang].textoSobre;
+      document.getElementById('titulo-linha-tempo').textContent = texts[lang].tituloLinhaTempo;
+      document.getElementById('ano1').textContent = texts[lang].ano1;
+      document.getElementById('desc1').textContent = texts[lang].desc1;
+      document.getElementById('ano2').textContent = texts[lang].ano2;
+      document.getElementById('desc2').textContent = texts[lang].desc2;
+      document.getElementById('ano3').textContent = texts[lang].ano3;
+      document.getElementById('desc3').textContent = texts[lang].desc3;
+      document.getElementById('ano4').textContent = texts[lang].ano4;
+      document.getElementById('desc4').textContent = texts[lang].desc4;
+      document.getElementById('ano5').textContent = texts[lang].ano5;
+      document.getElementById('desc5').textContent = texts[lang].desc5;
+      document.getElementById('ano6').textContent = texts[lang].ano6;
+      document.getElementById('desc6').textContent = texts[lang].desc6;
+      document.getElementById('titulo-equipe').textContent = texts[lang].tituloEquipe;
+      document.getElementById('nome-fundador').textContent = texts[lang].nomeFundador;
+      document.getElementById('frase-fundador').textContent = texts[lang].fraseFundador;
+    }
+
+    selectLang.addEventListener('change', e => {
+      updateLanguage(e.target.value);
+    });
+
+    // Inicializa com português
+    updateLanguage('pt');
+  </script>
+</body>
+</html>

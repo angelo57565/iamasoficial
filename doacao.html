@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Doação - Instituto Amazônia Sustentável</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #496d2d;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: #35491e;
+    }
+
+    #language-selector {
+      background-color: #496d2d;
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #language-selector:hover {
+      background-color: #35491e;
+    }
+
+    main {
+      flex-grow: 1;
+      max-width: 700px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(73,109,45,0.3);
+      padding: 40px 30px;
+      text-align: center;
+    }
+
+    main h1 {
+      color: #496d2d;
+      margin-bottom: 25px;
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    main p {
+      color: #35491e;
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+    }
+
+    #paypal-container-VK6E2W6U7T7QL {
+      margin: 0 auto;
+      max-width: 320px;
+    }
+
+    footer {
+      background-color: #496d2d;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    footer nav {
+      margin-bottom: 10px;
+    }
+
+    footer nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      margin: 0 8px;
+      display: inline-block;
+    }
+
+    .social-icons img {
+      width: 28px;
+      height: 28px;
+      vertical-align: middle;
+    }
+
+    /* Responsividade */
+    @media (max-width: 600px) {
+      main {
+        margin: 30px 15px;
+        padding: 30px 20px;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">IAMAS</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="iamas.html">IAMAS</a></li>
+        <li><a href="trabalho.html">Nosso Trabalho</a></li>
+        <li><a href="doacao.html">Doação</a></li>
+      </ul>
+    </nav>
+    <select id="language-selector" aria-label="Selecionar idioma">
+      <option value="pt">PT</option>
+      <option value="en">EN</option>
+      <option value="es">ES</option>
+    </select>
+  </header>
+
+  <main>
+    <h1 id="titulo-doacao">Faça sua Doação</h1>
+    <p id="texto-doacao">
+      Sua contribuição ajuda a preservar a Amazônia e apoiar as comunidades locais. Obrigado por fazer parte dessa causa!
+    </p>
+    <div id="paypal-container-VK6E2W6U7T7QL"></div>
+  </main>
+
+  <footer>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="iamas.html">IAMAS</a> |
+      <a href="trabalho.html">Nosso Trabalho</a> |
+      <a href="doacao.html">Doação</a>
+    </nav>
+    <div class="social-icons">
+      <a href="#"><img src="img/instagram.png" alt="Instagram" /></a>
+      <a href="#"><img src="img/facebook.png" alt="Facebook" /></a>
+      <a href="#"><img src="img/x.png" alt="X" /></a>
+    </div>
+    <p>Instituto Amazônia Sustentável - IAMAS © 2025</p>
+  </footer>
+
+  <!-- PayPal SDK -->
+  <script src="https://www.paypal.com/sdk/js?client-id=BAAwX_vY1ZoJvZnJ_CFnwYGgJjySSsfsy8rxOFkI_e0ducHf8Q_BOEmGHM0-VQBZP-rIR3OeL2pSMgXj0Q&components=hosted-buttons&disable-funding=venmo&currency=BRL"></script>
+
+  <script>
+    paypal.HostedButtons({
+      hostedButtonId: "VK6E2W6U7T7QL",
+    }).render("#paypal-container-VK6E2W6U7T7QL");
+  </script>
+
+  <script>
+    const texts = {
+      pt: {
+        tituloDoacao: "Faça sua Doação",
+        textoDoacao: "Sua contribuição ajuda a preservar a Amazônia e apoiar as comunidades locais. Obrigado por fazer parte dessa causa!"
+      },
+      en: {
+        tituloDoacao: "Make Your Donation",
+        textoDoacao: "Your contribution helps preserve the Amazon and support local communities. Thank you for being part of this cause!"
+      },
+      es: {
+        tituloDoacao: "Haz tu Donación",
+        textoDoacao: "Tu contribución ayuda a preservar la Amazonía y apoyar a las comunidades locales. ¡Gracias por ser parte de esta causa!"
+      }
+    };
+
+    const selectLang = document.getElementById('language-selector');
+
+    function updateLanguage(lang) {
+      document.getElementById('titulo-doacao').textContent = texts[lang].tituloDoacao;
+      document.getElementById('texto-doacao').textContent = texts[lang].textoDoacao;
+    }
+
+    selectLang.addEventListener('change', e => {
+      updateLanguage(e.target.value);
+    });
+
+    updateLanguage('pt');
+  </script>
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nosso Trabalho - IAMAS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #fff;
+      color: #333;
+    }
+    header {
+      background-color: #496d2d;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    nav ul li a:hover {
+      background-color: #35491e;
+    }
+    #language-selector {
+      background-color: #496d2d;
+      color: white;
+      border: none;
+      padding: 5px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #language-selector:hover {
+      background-color: #35491e;
+    }
+    main {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    /* Notícias detalhadas */
+    .noticia-detalhada {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .noticia-detalhada img {
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(73,109,45,0.3);
+      flex: 1 1 400px;
+    }
+    .noticia-texto {
+      flex: 1 1 500px;
+      color: #496d2d;
+    }
+    .noticia-texto h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    .noticia-texto p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      font-weight: 600;
+    }
+
+    /* Mais notícias */
+    .mais-noticias {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 25px;
+      margin-bottom: 60px;
+    }
+    .noticia-pequena {
+      background: #f1f7ee;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(73,109,45,0.15);
+      transition: box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .noticia-pequena:hover {
+      box-shadow: 0 8px 15px rgba(73,109,45,0.4);
+    }
+    .noticia-pequena img {
+      width: 100%;
+      height: 160px;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+    .noticia-pequena h3 {
+      color: #496d2d;
+      margin-bottom: 8px;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    .noticia-pequena p {
+      font-size: 1rem;
+      color: #35491e;
+      font-weight: 600;
+    }
+
+    /* Transparência */
+    .transparencia-section {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 80px;
+      background: #f9f9f9;
+      border-radius: 12px;
+      padding: 30px 20px;
+      box-shadow: 0 4px 8px rgba(73,109,45,0.1);
+    }
+    .transparencia-texto {
+      flex: 1 1 500px;
+      color: #496d2d;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+    .transparencia-texto h2 {
+      margin-bottom: 20px;
+      font-weight: 700;
+      font-size: 2rem;
+    }
+    .transparencia-texto a {
+      display: inline-block;
+      background-color: #496d2d;
+      color: white;
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: background-color 0.3s;
+      margin-top: 15px;
+    }
+    .transparencia-texto a:hover {
+      background-color: #35491e;
+    }
+    .transparencia-imagem {
+      flex: 1 1 400px;
+      max-width: 400px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 15px rgba(73,109,45,0.3);
+    }
+    .transparencia-imagem img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    footer {
+      background-color: #496d2d;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+    footer nav {
+      margin-bottom: 10px;
+    }
+    footer nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    .social-icons {
+      margin-top: 10px;
+    }
+    .social-icons a {
+      margin: 0 8px;
+      display: inline-block;
+    }
+    .social-icons img {
+      width: 28px;
+      height: 28px;
+      vertical-align: middle;
+    }
+
+    /* Responsividade */
+    @media (max-width: 900px) {
+      .noticia-detalhada {
+        flex-direction: column;
+      }
+      .noticia-detalhada img,
+      .noticia-texto {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+      .transparencia-section {
+        flex-direction: column;
+      }
+      .transparencia-texto, .transparencia-imagem {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">IAMAS</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="iamas.html">IAMAS</a></li>
+        <li><a href="trabalho.html">Nosso Trabalho</a></li>
+        <li><a href="doacao.html">Doação</a></li>
+      </ul>
+    </nav>
+    <select id="language-selector" aria-label="Selecionar idioma">
+      <option value="pt">PT</option>
+      <option value="en">EN</option>
+      <option value="es">ES</option>
+    </select>
+  </header>
+
+  <main>
+    <!-- Notícia detalhada principal -->
+    <section class="noticia-detalhada">
+      <img src="img/noticia1.jpg" alt="Projeto Saúde na Comunidade" />
+      <div class="noticia-texto">
+        <h2 id="titulo-noticia1">Projeto Saúde na Comunidade</h2>
+        <p id="texto-noticia1">
+          O Projeto Saúde na Comunidade visa levar atendimento médico e ações de prevenção para comunidades ribeirinhas da Amazônia. Contamos com equipes multidisciplinares que atuam diretamente no campo, promovendo saúde e qualidade de vida.
+        </p>
+      </div>
+    </section>
+
+    <!-- Mais notícias -->
+    <section class="mais-noticias">
+      <div class="noticia-pequena">
+        <img src="img/noticia2.jpg" alt="Educação para o Futuro" />
+        <h3 id="titulo-noticia2">Educação para o Futuro</h3>
+        <p id="texto-noticia2">
+          Desenvolvimento de programas educacionais focados em sustentabilidade, capacitando jovens para cuidar do meio ambiente.
+        </p>
+      </div>
+      <div class="noticia-pequena">
+        <img src="img/noticia3.jpg" alt="Esporte e Cidadania" />
+        <h3 id="titulo-noticia3">Esporte e Cidadania</h3>
+        <p id="texto-noticia3">
+          Incentivo à prática esportiva e atividades culturais para promover inclusão social e fortalecimento comunitário.
+        </p>
+      </div>
+      <div class="noticia-pequena">
+        <img src="img/noticia4.jpg" alt="Projeto Agricultura Sustentável" />
+        <h3 id="titulo-noticia4">Agricultura Sustentável</h3>
+        <p id="texto-noticia4">
+          Apoio a agricultores locais para implementar práticas sustentáveis que preservem o solo e aumentem a produtividade.
+        </p>
+      </div>
+    </section>
+
+    <!-- Transparência -->
+    <section class="transparencia-section">
+      <div class="transparencia-texto">
+        <h2 id="titulo-transparencia">Transparência</h2>
+        <p id="texto-transparencia">
+          Para garantir a transparência das ações do IAMAS, disponibilizamos relatórios, prestação de contas e auditorias públicas.
+        </p>
+        <a href="https://drive.google.com/drive/folders/EXEMPLO_DE_LINK" target="_blank" rel="noopener noreferrer" id="link-relatorios">Acesse nossos relatórios</a>
+      </div>
+      <div class="transparencia-imagem">
+        <img src="img/ribeirinho.jpg" alt="Comunidade Ribeirinha" />
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="iamas.html">IAMAS</a> |
+      <a href="trabalho.html">Nosso Trabalho</a> |
+      <a href="doacao.html">Doação</a>
+    </nav>
+    <div class="social-icons">
+      <a href="#"><img src="img/instagram.png" alt="Instagram" /></a>
+      <a href="#"><img src="img/facebook.png" alt="Facebook" /></a>
+      <a href="#"><img src="img/x.png" alt="X" /></a>
+    </div>
+    <p>Instituto Amazônia Sustentável - IAMAS © 2025</p>
+  </footer>
+
+  <script>
+    const texts = {
+      pt: {
+        tituloNoticia1: "Projeto Saúde na Comunidade",
+        textoNoticia1: "O Projeto Saúde na Comunidade visa levar atendimento médico e ações de prevenção para comunidades ribeirinhas da Amazônia. Contamos com equipes multidisciplinares que atuam diretamente no campo, promovendo saúde e qualidade de vida.",
+        tituloNoticia2: "Educação para o Futuro",
+        textoNoticia2: "Desenvolvimento de programas educacionais focados em sustentabilidade, capacitando jovens para cuidar do meio ambiente.",
+        tituloNoticia3: "Esporte e Cidadania",
+        textoNoticia3: "Incentivo à prática esportiva e atividades culturais para promover inclusão social e fortalecimento comunitário.",
+        tituloNoticia4: "Agricultura Sustentável",
+        textoNoticia4: "Apoio a agricultores locais para implementar práticas sustentáveis que preservem o solo e aumentem a produtividade.",
+        tituloTransparencia: "Transparência",
+        textoTransparencia: "Para garantir a transparência das ações do IAMAS, disponibilizamos relatórios, prestação de contas e auditorias públicas.",
+        linkRelatorios: "Acesse nossos relatórios"
+      },
+      en: {
+        tituloNoticia1: "Community Health Project",
+        textoNoticia1: "The Community Health Project aims to provide medical care and preventive actions to riverside communities in the Amazon. We have multidisciplinary teams working directly in the field, promoting health and quality of life.",
+        tituloNoticia2: "Education for the Future",
+        textoNoticia2: "Development of educational programs focused on sustainability, empowering youth to care for the environment.",
+        tituloNoticia3: "Sports and Citizenship",
+        textoNoticia3: "Encouraging sports practice and cultural activities to promote social inclusion and community strengthening.",
+        tituloNoticia4: "Sustainable Agriculture",
+        textoNoticia4: "Support for local farmers to implement sustainable practices that preserve soil and increase productivity.",
+        tituloTransparencia: "Transparency",
+        textoTransparencia: "To guarantee the transparency of IAMAS's actions, we provide reports, accounts, and public audits.",
+        linkRelatorios: "Access our reports"
+      },
+      es: {
+        tituloNoticia1: "Proyecto Salud en la Comunidad",
+        textoNoticia1: "El Proyecto Salud en la Comunidad tiene como objetivo brindar atención médica y acciones preventivas a las comunidades ribereñas de la Amazonía. Contamos con equipos multidisciplinarios que trabajan directamente en el campo, promoviendo salud y calidad de vida.",
+        tituloNoticia2: "Educación para el Futuro",
+        textoNoticia2: "Desarrollo de programas educativos enfocados en la sostenibilidad, capacitando a los jóvenes para cuidar el medio ambiente.",
+        tituloNoticia3: "Deportes y Ciudadanía",
+        textoNoticia3: "Fomento de la práctica deportiva y actividades culturales para promover la inclusión social y el fortalecimiento comunitario.",
+        tituloNoticia4: "Agricultura Sostenible",
+        textoNoticia4: "Apoyo a agricultores locales para implementar prácticas sostenibles que preserven el suelo y aumenten la productividad.",
+        tituloTransparencia: "Transparencia",
+        textoTransparencia: "Para garantizar la transparencia de las acciones del IAMAS, disponemos de informes, rendición de cuentas y auditorías públicas.",
+        linkRelatorios: "Accede a nuestros informes"
+      }
+    };
+
+    const selectLang = document.getElementById('language-selector');
+
+    function updateLanguage(lang) {
+      document.getElementById('titulo-noticia1').textContent = texts[lang].tituloNoticia1;
+      document.getElementById('texto-noticia1').textContent = texts[lang].textoNoticia1;
+      document.getElementById('titulo-noticia2').textContent = texts[lang].tituloNoticia2;
+      document.getElementById('texto-noticia2').textContent = texts[lang].textoNoticia2;
+      document.getElementById('titulo-noticia3').textContent = texts[lang].tituloNoticia3;
+      document.getElementById('texto-noticia3').textContent = texts[lang].textoNoticia3;
+      document.getElementById('titulo-noticia4').textContent = texts[lang].tituloNoticia4;
+      document.getElementById('texto-noticia4').textContent = texts[lang].textoNoticia4;
+      document.getElementById('titulo-transparencia').textContent = texts[lang].tituloTransparencia;
+      document.getElementById('texto-transparencia').textContent = texts[lang].textoTransparencia;
+      document.getElementById('link-relatorios').textContent = texts[lang].linkRelatorios;
+    }
+
+    selectLang.addEventListener('change', e => {
+      updateLanguage(e.target.value);
+    });
+
+    updateLanguage('pt');
+  </script>
+</body>
+</html>
